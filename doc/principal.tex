@@ -1,0 +1,64 @@
+\documentclass[a4paper, onecolumn, 12pt, final]{article}
+%\documentclass[a4paper, onecolumn, 12pt, draft]{article}
+%\documentclass[a4paper, twocolumn, 10pt, draft]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% aptitude install texlive-lang-spanish
+\usepackage[catalan]{babel}
+
+\usepackage[pdftex]{color,graphicx}
+\usepackage[font=small,format=plain,labelfont=bf,up,textfont=it,up]{caption}
+\usepackage{url}
+\usepackage[plainpages=false,pdfpagelabels,bookmarks=true]{hyperref}
+\usepackage{textcomp}
+\usepackage{sverb}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage[kerning,spacing]{microtype}
+\microtypecontext{spacing=nonfrench}
+
+% aptitude install texlive-fonts-extra
+\usepackage{newcent}
+
+\pagestyle{headings}
+
+\title{EmoFS: sistema de fitxers amb inodes com a pràctica per Ampliació de
+  Sistemes Operatius (4520)}
+
+\author{Bartomeu Miró Mateu <bartomeumiro@gmail.com>, \\
+  DNI 43182841-L, Informàtica Tècnica de Sistemes (TIS2)\\
+        Pau Ru\l.lan Ferragut <paurullan@gmail.com>, \\
+  DNI 43142697-X, Informàtica Tècnica de Sistemes (TIS2) }
+
+\date{15 d'agost de 2009}
+
+\pagestyle{headings}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Un sistema de fitxers és el component del sistema operatiu que facilita als
+usuaris desar informació i ordenar-ho per fitxers i directoris. Aquest document
+és la memòria d'un sistema de fitxers basat en inodes amb la finalitat
+d'experimentar el que s'ha estudiat a l'assignatura d'ampliació de sistemes
+operatius (codi 4520).
+\end{abstract}
+
+
+\input{descripcio}
+\input{disseny}
+\input{implementacio}
+\input{proves}
+\input{conclusions}
+
+\appendix
+\include{codi}
+
+\newpage
+\tableofcontents
+
+\end{document}

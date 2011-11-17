@@ -1,0 +1,50 @@
+\select@language {catalan}
+\contentsline {section}{\numberline {1}Descripci\IeC {\'o} del problema}{1}{section.1}
+\contentsline {section}{\numberline {2}Disseny i estructura del SF}{2}{section.2}
+\contentsline {section}{\numberline {3}Implementaci\IeC {\'o}}{3}{section.3}
+\contentsline {section}{\numberline {4}Jocs de proves i resultats}{4}{section.4}
+\contentsline {subsection}{\numberline {4.1}Execucions}{4}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Simulador}{5}{subsection.4.2}
+\contentsline {section}{\numberline {5}Conclusions}{9}{section.5}
+\contentsline {section}{\numberline {A}Codi font}{10}{appendix.A}
+\contentsline {subsection}{\numberline {A.1}Capa base}{10}{subsection.A.1}
+\contentsline {subsubsection}{\numberline {A.1.1}bitmap.h}{10}{subsubsection.A.1.1}
+\contentsline {subsubsection}{\numberline {A.1.2}bitmap.c}{11}{subsubsection.A.1.2}
+\contentsline {subsubsection}{\numberline {A.1.3}block.h}{15}{subsubsection.A.1.3}
+\contentsline {subsubsection}{\numberline {A.1.4}block.c}{16}{subsubsection.A.1.4}
+\contentsline {subsubsection}{\numberline {A.1.5}block\_lib.h}{18}{subsubsection.A.1.5}
+\contentsline {subsubsection}{\numberline {A.1.6}block\_lib.c}{20}{subsubsection.A.1.6}
+\contentsline {subsubsection}{\numberline {A.1.7}common.h}{27}{subsubsection.A.1.7}
+\contentsline {subsection}{\numberline {A.2}Nucli}{28}{subsection.A.2}
+\contentsline {subsubsection}{\numberline {A.2.1}super.h}{28}{subsubsection.A.2.1}
+\contentsline {subsubsection}{\numberline {A.2.2}super.c}{30}{subsubsection.A.2.2}
+\contentsline {subsubsection}{\numberline {A.2.3}inode.h}{30}{subsubsection.A.2.3}
+\contentsline {subsubsection}{\numberline {A.2.4}inode.c}{33}{subsubsection.A.2.4}
+\contentsline {subsubsection}{\numberline {A.2.5}file.h}{43}{subsubsection.A.2.5}
+\contentsline {subsubsection}{\numberline {A.2.6}file.c}{44}{subsubsection.A.2.6}
+\contentsline {subsubsection}{\numberline {A.2.7}dir.h}{52}{subsubsection.A.2.7}
+\contentsline {subsubsection}{\numberline {A.2.8}dir.c}{55}{subsubsection.A.2.8}
+\contentsline {subsection}{\numberline {A.3}Eines de sistema}{69}{subsection.A.3}
+\contentsline {subsubsection}{\numberline {A.3.1}sem.h}{69}{subsubsection.A.3.1}
+\contentsline {subsubsection}{\numberline {A.3.2}sem.c}{70}{subsubsection.A.3.2}
+\contentsline {subsection}{\numberline {A.4}Simulador}{72}{subsection.A.4}
+\contentsline {subsubsection}{\numberline {A.4.1}sim.c}{72}{subsubsection.A.4.1}
+\contentsline {subsection}{\numberline {A.5}Eines d'usuari}{77}{subsection.A.5}
+\contentsline {subsubsection}{\numberline {A.5.1}mi\_append.c}{77}{subsubsection.A.5.1}
+\contentsline {subsubsection}{\numberline {A.5.2}mi\_mkfs.c}{78}{subsubsection.A.5.2}
+\contentsline {subsubsection}{\numberline {A.5.3}mi\_cat.c}{80}{subsubsection.A.5.3}
+\contentsline {subsubsection}{\numberline {A.5.4}mi\_ln.c}{82}{subsubsection.A.5.4}
+\contentsline {subsubsection}{\numberline {A.5.5}mi\_ls.c}{83}{subsubsection.A.5.5}
+\contentsline {subsubsection}{\numberline {A.5.6}mi\_mkdir.c}{85}{subsubsection.A.5.6}
+\contentsline {subsubsection}{\numberline {A.5.7}mi\_rm.c}{86}{subsubsection.A.5.7}
+\contentsline {subsubsection}{\numberline {A.5.8}mi\_stat.c}{88}{subsubsection.A.5.8}
+\contentsline {subsubsection}{\numberline {A.5.9}mi\_touch.c}{89}{subsubsection.A.5.9}
+\contentsline {subsubsection}{\numberline {A.5.10}mi\_write.c}{90}{subsubsection.A.5.10}
+\contentsline {subsubsection}{\numberline {A.5.11}mi\_mount.c}{91}{subsubsection.A.5.11}
+\contentsline {subsubsection}{\numberline {A.5.12}mi\_umount.c}{91}{subsubsection.A.5.12}
+\contentsline {subsection}{\numberline {A.6}Jocs de proves}{92}{subsection.A.6}
+\contentsline {subsubsection}{\numberline {A.6.1}test\_mapa\_bits.c}{92}{subsubsection.A.6.1}
+\contentsline {subsubsection}{\numberline {A.6.2}test\_setmana1.c}{92}{subsubsection.A.6.2}
+\contentsline {subsubsection}{\numberline {A.6.3}test\_setmana2.c}{95}{subsubsection.A.6.3}
+\contentsline {subsubsection}{\numberline {A.6.4}test\_setmana3.c}{96}{subsubsection.A.6.4}
+\contentsline {subsubsection}{\numberline {A.6.5}test\_setmana5.c}{100}{subsubsection.A.6.5}

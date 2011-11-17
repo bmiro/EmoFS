@@ -1,0 +1,143 @@
+Estructura general
+
+La práctica estará compuesta por los siguientes elementos:
+
+    *
+
+      Un conjunto de bibliotecas, divididas en niveles, que proporcionan las
+      primitivas para acceder al sistema de ficheros y gestionarlo.
+
+    *
+
+      Un programa mi_mkfs para crear, con la ayuda de dichas bibliotecas, el
+      sistema de ficheros en el disco (estará contenido en un fichero
+      disco.imagen).
+
+    *
+
+      Un programa que liste directorios (mi_ls), uno que muestre la
+      metainformación de un fichero (mi_stat), uno que muestre el contenido de
+      un fichero por pantalla (mi_cat), uno que cree enlaces físicos (mi_ln),
+      uno que borre ficheros y directorios (mi_rm).
+      Estos programas acceden al sistema de ficheros a través de las primitivas
+      de las bibliotecas.
+      Su funcionamiento es similar al funcionamiento básico de los
+      correspondientes programas ls, stat, cat, ln, rm/rmdir de GNU/Linux.
+
+    *
+
+      Un programa simulador encargado de crear unos procesos de prueba que
+      manejen ficheros de modo que se pueda comprobar el correcto
+      funcionamiento de las citadas bibliotecas.
+
+
+Requerimientos
+
+Los requerimientos mínimos son:
+
+    *
+
+      El sistema de ficheros deberá ser jerárquico con estructura de árbol; es
+      decir, deben poder crearse subdirectorios.
+    *
+
+      El sistema de ficheros debe ser indexado (inodos).
+    *
+
+      Cada bloque lógico podrá ser de 512 a 4.096 bytes.
+    *
+
+      El nombre del fichero (disco.imagen) que almacenará el sistema de
+      ficheros deberá ser dinámico; es decir, no estará definido en los
+      programas fuentes.
+    *
+
+      La asignación de espacio a los ficheros deberá ser dinámica: se asignarán
+      nuevos bloques a medida que hagan falta.
+    *
+
+      Cada fichero tendrá una metainformación mínima necesaria para las
+      primitivas (según la estructura del inodo).
+    *
+
+      En las bibliotecas deben implementarse métodos de control de concurrencia
+      para acceder a los datos de gestión del sistema de ficheros (superbloque,
+      mapa de bits y array de inodos): hay que definir secciones críticas y
+      usar mútex donde corresponda.
+
+    * Dentro de las bibliotecas no se controla el acceso concurrente de varios
+      procesos a los datos de un mismo fichero. Si hace falta, los procesos
+      externos deberán encargarse de dicho control (es suficiente que lo hagan
+      mediante un mútex).
+
+
+Primitivas de acceso
+
+Las siguientes operaciones son las mínimas que deben estar programadas en las
+bibliotecas del sistema de ficheros:
+
+   1.
+
+      mi_dir
+      Obtiene el contenido de un directorio en una cadena de caracteres (puede
+      separar su contenido por ':') y obtiene el número de ficheros listado.
+
+   2.
+
+      mi_stat
+      Obtiene la metainformación de un fichero (es decir, la de su inodo).
+
+   3.
+
+      mi_read
+      Lee una cantidad determinada de bytes de un fichero, desde una posición
+      inicial, y los pone en un buffer de memoria y obtiene la cantidad total
+      de bytes leídos.
+
+   4.
+
+      mi_write
+      Escribe en un fichero, desde una posición inicial, una cantidad
+      determinada de bytes a partir de un buffer de memoria y devuelve la
+      cantidad total de bytes escritos.
+
+   5.
+
+      mi_creat
+      Crea el fichero especificado.
+
+   6.
+
+      mi_link
+      Crea el enlace de una entrada de directorio al inodo especificado por
+      otra entrada de directorio.
+
+   7. mi_unlink
+      Borra el enlace físico especificado y, en caso de que sea el último
+      existente, borrar el propio fichero.
+
+Todas las operaciones devuelven 0 si se realizaron correctamente y 1 en caso
+contrario.
+
+
+Simulación (borrador)
+
+Antes de comenzar con la simulación, se creará el directorio
+"simul_aaaammddhhmmss", donde aaaa es el año, mm es el mes, dd es el día, hh es
+la hora, mm es el minuto y ss es el segundo de creación.
+
+Se han de generar 100 procesos de prueba cada 0,5 segundos. Cada proceso creará
+un directorio llamado "proceso_n", donde n es el PID del proceso, dentro del
+directorio "simul_aaaammddhhmmss". Además, dentro del directorio "proceso_n",
+cada proceso creará un fichero "prueba.dat".
+
+Cada 0,1 segundo cada proceso escribirá dentro del fichero "prueba.dat" 50
+veces la información "hh:mm:ss Escritura número i a partir de la posición j",
+donde hh es la hora, mm es el minuto, ss es el segundo, i es el número de
+escritura y j es la posición inicial de escritura. Esta posición, dentro del
+espacio de datos del fichero, se hará de manera aleatoria. No importa si alguna
+frase sobreescribe parcial o totalmente alguna de las frases anteriores.
+
+Al final de la simulación se imprimirá un listado de todos los ficheros que se
+han generado con sus respectivos tamaños. Por último, hay que mostrar por
+pantalla el contenido de uno de ellos escogido al azar.

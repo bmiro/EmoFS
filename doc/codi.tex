@@ -1,0 +1,171 @@
+\section{Codi font}
+
+% el codi font escrit
+
+% http://www.cl.cam.ac.uk/~rf10/pstex/latexcommands.htm
+% http://stackoverflow.com/questions/193298/best-practices-in-latex/897728#897728
+% http://stackoverflow.com/questions/741985/latex-source-code-listing-like-in-professional-books/742012#742012
+% http://stackoverflow.com/questions/1116266/listings-in-latex-with-utf-8-or-at-least-german-umlauts
+
+\lstset{
+  language=C,
+  basicstyle=\ttfamily\small,
+%  basicstyle=\ttfamily\footnotesize,
+  columns=fullflexible,
+  showstringspaces=false,
+  numbers=left,
+  numberstyle=\tiny,
+  frame=tb,
+  columns=fullflexible,
+  morekeywords={assert},
+  extendedchars=\true,
+  inputencoding=utf8
+}
+
+\addtolength{\hoffset}{-1.5cm}
+
+\subsection{Capa base}
+
+%% bitmap.h
+%% bitmap.c
+%% block.h
+%% block.c
+%% block_lib.c
+%% block_lib.h
+%% common.h
+
+\subsubsection{bitmap.h}
+\lstinputlisting{src/bitmap.h}
+\subsubsection{bitmap.c}
+\lstinputlisting{src/bitmap.c}
+
+\subsubsection{block.h}
+\lstinputlisting{src/block.h}
+\subsubsection{block.c}
+\lstinputlisting{src/block.c}
+
+\subsubsection{block\_lib.h}
+\lstinputlisting{src/block_lib.h}
+\subsubsection{block\_lib.c}
+\lstinputlisting{src/block_lib.c}
+
+\subsubsection{common.h}
+\lstinputlisting{src/common.h}
+
+\subsection{Nucli}
+
+%% super.c
+%% super.h
+%% inode.c
+%% inode.h
+%% data_block.c
+%% data_block.h
+%% dir.c
+%% dir.h
+%% file.c
+%% file.h
+
+\subsubsection{super.h}
+\lstinputlisting{src/super.h}
+\subsubsection{super.c}
+\lstinputlisting{src/super.c}
+
+\subsubsection{inode.h}
+\lstinputlisting{src/inode.h}
+\subsubsection{inode.c}
+\lstinputlisting{src/inode.c}
+
+\subsubsection{file.h}
+\lstinputlisting{src/file.h}
+\subsubsection{file.c}
+\lstinputlisting{src/file.c}
+
+\subsubsection{dir.h}
+\lstinputlisting{src/dir.h}
+\subsubsection{dir.c}
+\lstinputlisting{src/dir.c}
+
+\subsection{Eines de sistema}
+
+%% sem.c
+%% sem.h
+
+\subsubsection{sem.h}
+\lstinputlisting{src/sem.h}
+\subsubsection{sem.c}
+\lstinputlisting{src/sem.c}
+
+
+\subsection{Simulador}
+
+%% sim.c
+
+\subsubsection{sim.c}
+\lstinputlisting{src/sim.c}
+
+\subsection{Eines d'usuari}
+
+%% mi_mkfs.c
+%% mi_cat.c
+%% mi_ln.c
+%% mi_ls.c
+%% mi_mkdir.c
+%% mi_rm.c
+%% mi_stat.c
+%% mi_touch.c
+%% mi_append.c
+%% mi_write.c
+%% mi_mount.c
+%% mi_umount.c
+
+\subsubsection{mi\_append.c}
+\lstinputlisting{src/mi_append.c}
+\subsubsection{mi\_mkfs.c}
+\lstinputlisting{src/mi_mkfs.c}
+\subsubsection{mi\_cat.c}
+\lstinputlisting{src/mi_cat.c}
+\subsubsection{mi\_ln.c}
+\lstinputlisting{src/mi_ln.c}
+\subsubsection{mi\_ls.c}
+\lstinputlisting{src/mi_ls.c}
+\subsubsection{mi\_mkdir.c}
+\lstinputlisting{src/mi_mkdir.c}
+\subsubsection{mi\_rm.c}
+\lstinputlisting{src/mi_rm.c}
+\subsubsection{mi\_stat.c}
+\lstinputlisting{src/mi_stat.c}
+\subsubsection{mi\_touch.c}
+\lstinputlisting{src/mi_touch.c}
+\subsubsection{mi\_write.c}
+\lstinputlisting{src/mi_write.c}
+\subsubsection{mi\_mount.c}
+\lstinputlisting{src/mi_mount.c}
+\subsubsection{mi\_umount.c}
+\lstinputlisting{src/mi_umount.c}
+
+\subsection{Jocs de proves}
+
+%% tests_mapa_bits.c
+%% tests_setmana1.c
+%% tests_setmana2.c
+%% tests_setmana3.c
+%% tests_setmana5.c
+
+\subsubsection{test\_mapa\_bits.c}
+\lstinputlisting{src/tests_mapa_bits.c}
+
+\subsubsection{test\_setmana1.c}
+\lstinputlisting{src/tests_setmana1.c}
+
+\subsubsection{test\_setmana2.c}
+\lstinputlisting{src/tests_setmana2.c}
+
+\subsubsection{test\_setmana3.c}
+\lstinputlisting{src/tests_setmana3.c}
+
+\subsubsection{test\_setmana5.c}
+\lstinputlisting{src/tests_setmana5.c}
+
+
+\addtolength{\hoffset}{1.5cm}
+

@@ -1,0 +1,82 @@
+
+\section{Disseny i estructura del SF}
+
+La pràctica en sí està dividida en quatre seccions: les biblioteques, les eines
+d'interacció, els jocs de proves i el simulador. Anomenam biblioteca a tot el
+codi que l'usuari final no usa directament. Aquesta secció és el major cos de
+la pràctica en nombre de línies perquè és la implementació del sistema de
+fitxers pròpiament dit.
+
+Les altres tres seccions formen el suport per l'ús del sistema de
+fitxers. Anomenam a les eines d'interacció a tots els petits programes clàssics
+del UNIX que s'usen al dia a dia: \verb+cd+, \verb+cat+, \verb+ls+ o
+\verb+mkdir+. El simulador és la peça indicada a l'enunciat que fa la prova del
+sistema. El simulador està completament definit i no és més que crear un gran
+nombre de clients que facin un directori i duguin a terme escriptures a un
+fitxer. Els jocs de proves són petits programes que tenen com a únic objectiu
+comprovar la correcció de cadascun dels mòduls.
+
+L'estructura de les biblioteques és un conjunt de vàries capes més un fitxer
+comú a totes elles. L'estructura completa es pot estudiar a la taula
+\ref{capes:simple} però bàsicament està formada pel nucli del sistema de
+fitxers, les llibreries d'accés al nucli, la gestió de fitxers i les eines
+d'usuari. Aquest element al que totes tenen accés s'anomena \verb+common.h+ i
+allà s'emmagatzemen variables globals de configuració com el grandària de bloc
+predeterminat. Les dades i valors que apareixen al fitxer comú poden
+modificar-se a la creació de la imatge del SF.
+
+\begin{table}
+\centering
+\begin{tabular}{|ll|}
+\textbf{Nivell} & \textbf{Components} \\
+\hline
+simulació   & sim.c \\
+\hline
+eines & mi\_mkfs.c \\
+      & mi\_rm.c \\
+      & mi\_ln.c \\
+      & $\cdots$ \\
+\hline
+fitxers & dir \\
+        & file \\
+        & inode \\
+\hline
+llibreries & block\_lib \\
+\hline
+nucli & block \\
+      & super \\
+      & bitmap \\
+\hline
+\end{tabular}
+\caption{Esquema dels mòduls del SF}
+\label{capes:simple}
+\end{table}
+
+\begin{table}
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{3}{|c|}{Metadades} & Dades \\
+\hline
+Superbloc & Mapa de bits & Inodes & Dades \\
+\hline
+\end{tabular}
+\caption{Esquema de l'ordenació de les dades del SF}
+\label{esquema}
+\end{table}
+
+
+La informació permanent del sistema de fitxers està separada en dues parts: les
+\emph{dades} i les seves \emph{metadades}. Les metadades estan compostes pel
+\emph{superbloc}, el \emph{mapa de bits} i pel vector d'\emph{inodes}.  Aquest
+esquema es pot estudiar a la taula \ref{esquema}. El superbloc s'encarrega de
+mantenir informació com quants de blocs queden lliures o quin és el primer
+inode i el mapa de bits té com a funció indicar quins blocs de dades estan
+lliures i quins estan ocupats.
+
+El vector d'inodes és un conjunt d'estructures que assenyalen les
+característiques d'un fitxer o directori: el seu tamany, la darrera
+modificació, quants d'enllaços té i on es poden trobar els blocs físics on es
+desa la informació.  Un inode es pot comportar com un fitxer de dades, on es
+desa informació, o com una entrada de directori, un text que sosté l'estructura
+d'arbre dels fitxers.

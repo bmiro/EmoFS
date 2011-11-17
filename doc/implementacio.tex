@@ -1,0 +1,38 @@
+
+\section{Implementació}
+
+Per simplicitat la gestió de concurrència es fa mitjançant un sol \emph{mutex}
+que bloca totes les estructures. Aquest \emph{biglock} implica un rendiment
+molt baix doncs sols permet una operació alhora però redueix enormement la
+complexitat i els possibles problemes d'accés simultani. Tots els controls es
+troben dins les funcions de \verb+dir.h+. També creàrem unes eines de
+\verb+mi_mount+ i \verb+mi_umount+ que s'encarreguen de crear i destruir els
+semàfors. Aquestes eines s'han d'executar abans de començar la interacció amb
+el sistema de fitxers però no cal fer-ho pel simulador perquè el propi
+\verb+sim.c+ ja ho fa.
+
+Les variables i característiques com els tamanys de bloc, el nombre d'entrades
+d'inode o el nombre de blocs de dades estan definits als fitxers corresponents:
+\verb+common.h+, \verb+super.h+, \verb+inode.h+ \ldots Podem trobar que totes
+les dades indirectes, com el tamany de \emph{padding} del superbloc o el nombre
+final d'entrades al mapa de bits són calculades mitjançant macros però
+recordant que s'ha recompilar el projecte si es vol fer algun canvi.
+
+Com a funcions i tasques extres hem desenvolupat els programes d'usuari
+\verb+mkdir+, \verb+touch+, \verb+append+. Amb aquests programes són molt útils
+per fer comprovacions de com està la imatge del sistema de fitxers. Alhora així
+podem escriure el simulador d'una manera especial: fent que cada tasca del fils
+usi les eines d'usuari normals, imitant més el comportament d'usuari.
+
+El \verb+ls+ accepta varis camins com entrada. És l'únic programa que ho fa
+però sols ho hem volgut implementar com a prova conceptual: fer-ho per eines
+com \verb+rm+ sols era un poc més de feina. Aquest processament es podria haver
+fet amb una biblioteca d'arguments però l'hem fet a mà.
+
+El programa \verb+mi_ls+ usa com a sortida un \verb+emofs_extract_path+ (el que
+a l'enunciat és un \verb+info_fichero+) i aquestes funcions demanen un
+\emph{buffer} per recórrer els fitxers d'un directori. Aquest \emph{buffer} pot
+ser fixo, que malbarata l'espai, o dinàmic, amb el perill de quedar-se sense
+memòria. Nosaltres hem usat la memòria dinàmica per així recordar els usos de
+\verb+malloc+ i \verb+realloc+ sempre recordant que la pràctica no pretén tenir
+directoris amb un gran nombre d'entrades.

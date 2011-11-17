@@ -1,0 +1,218 @@
+\section{Jocs de proves i resultats}
+
+Els jocs de proves no són eines d'usuari perquè no tenen cap utilitat més enllà
+de fer les comprovacions de les feines setmana a setmana. Segons el que s'hagi
+treballat durant la creació d'un joc de proves potser s'usen directament les
+biblioteques del SF o alguna eina com el \verb+mkdir+. El codi d'aquestes
+proves es pot veure a l'apèndix.
+
+\subsection{Execucions}
+
+Aquestes són les sortides de les execucions de les distintes eines d'usuari i
+el simulador. Les execucions estan fetes per ordre sobre la mateixa imatge de
+sistema de fitxers.
+
+
+\begin{footnotesize}
+\begin{verbatim}
+mi_mkfs
+mi_mount
+mi_touch /x
+mi_mkdir /a
+mi_mkdir /a/b
+mi_touch /a/b/y
+
+mi_ls /
+Type 	 Size 		 Epoc 		 Name 
+d 	 64 		 1250506318 	 a 
+f 	 0 		 1250506278 	 x 
+d 	 0 		 1250506266 	 authors 
+
+mi_ls /a
+Size 		 Epoc 		 Name 
+d 	 64 		 1250506372 	 b 
+
+mi_write /a/b/y "prova de text molt llarg"
+
+mi_cat /a/b/y
+prova de text molt llarg
+
+mi_write /a/b/y "MES TEXT QUE SOBREPASI" 5
+
+mi_cat /a/b/y
+provaMES TEXT QUE SOBREPASI
+
+mi_ln /a/b/y /z
+
+mi_cat /z
+provaMES TEXT QUE SOBREPASI
+
+mi_rm /a/b/y
+
+mi_ls /a/b
+Type 	 Size 		 Epoc 		 Name 
+
+mi_umount
+\end{verbatim}
+\end{footnotesize}
+
+\subsection{Simulador}
+
+\begin{footnotesize}
+\begin{verbatim}
+
+Inici worker 13861
+sim: worker: final client amb pid 13861
+Inici worker 13862
+sim: worker: final client amb pid 13862
+Inici worker 13863
+sim: worker: final client amb pid 13863
+[...]
+Inici worker 13959
+sim: worker: final client amb pid 13959
+Inici worker 13960
+sim: worker: final client amb pid 13960
+Type 	 Size 		 Epoc 		 Name 
+d 	 64 		 1250518506 	 process_13960 
+d 	 64 		 1250518506 	 process_13959 
+d 	 64 		 1250518506 	 process_13958 
+d 	 64 		 1250518506 	 process_13957 
+d 	 64 		 1250518506 	 process_13956 
+d 	 64 		 1250518506 	 process_13955 
+d 	 64 		 1250518506 	 process_13954 
+d 	 64 		 1250518506 	 process_13953 
+d 	 64 		 1250518506 	 process_13952 
+d 	 64 		 1250518506 	 process_13951 
+d 	 64 		 1250518506 	 process_13950 
+d 	 64 		 1250518506 	 process_13949 
+d 	 64 		 1250518506 	 process_13948 
+d 	 64 		 1250518506 	 process_13947 
+d 	 64 		 1250518506 	 process_13946 
+d 	 64 		 1250518506 	 process_13945 
+d 	 64 		 1250518506 	 process_13944 
+d 	 64 		 1250518506 	 process_13943 
+d 	 64 		 1250518506 	 process_13942 
+d 	 64 		 1250518506 	 process_13941 
+d 	 64 		 1250518506 	 process_13940 
+d 	 64 		 1250518506 	 process_13939 
+d 	 64 		 1250518506 	 process_13938 
+d 	 64 		 1250518506 	 process_13937 
+d 	 64 		 1250518506 	 process_13936 
+d 	 64 		 1250518506 	 process_13935 
+d 	 64 		 1250518506 	 process_13934 
+d 	 64 		 1250518506 	 process_13933 
+d 	 64 		 1250518506 	 process_13932 
+d 	 64 		 1250518506 	 process_13931 
+d 	 64 		 1250518506 	 process_13930 
+d 	 64 		 1250518506 	 process_13929 
+d 	 64 		 1250518506 	 process_13928 
+d 	 64 		 1250518506 	 process_13927 
+d 	 64 		 1250518506 	 process_13926 
+d 	 64 		 1250518506 	 process_13925 
+d 	 64 		 1250518506 	 process_13924 
+d 	 64 		 1250518506 	 process_13923 
+d 	 64 		 1250518506 	 process_13922 
+d 	 64 		 1250518506 	 process_13921 
+d 	 64 		 1250518506 	 process_13920 
+d 	 64 		 1250518506 	 process_13919 
+d 	 64 		 1250518506 	 process_13918 
+d 	 64 		 1250518506 	 process_13917 
+d 	 64 		 1250518506 	 process_13916 
+d 	 64 		 1250518506 	 process_13915 
+d 	 64 		 1250518506 	 process_13914 
+d 	 64 		 1250518506 	 process_13913 
+d 	 64 		 1250518506 	 process_13912 
+d 	 64 		 1250518506 	 process_13911 
+d 	 64 		 1250518506 	 process_13910 
+d 	 64 		 1250518506 	 process_13909 
+d 	 64 		 1250518506 	 process_13908 
+d 	 64 		 1250518506 	 process_13907 
+d 	 64 		 1250518506 	 process_13906 
+d 	 64 		 1250518506 	 process_13905 
+d 	 64 		 1250518506 	 process_13904 
+d 	 64 		 1250518506 	 process_13903 
+d 	 64 		 1250518506 	 process_13902 
+d 	 64 		 1250518506 	 process_13901 
+d 	 64 		 1250518506 	 process_13900 
+d 	 64 		 1250518506 	 process_13899 
+d 	 64 		 1250518506 	 process_13898 
+d 	 64 		 1250518506 	 process_13897 
+d 	 64 		 1250518506 	 process_13896 
+d 	 64 		 1250518506 	 process_13895 
+d 	 64 		 1250518506 	 process_13894 
+d 	 64 		 1250518506 	 process_13893 
+d 	 64 		 1250518506 	 process_13892 
+d 	 64 		 1250518506 	 process_13891 
+d 	 64 		 1250518506 	 process_13890 
+d 	 64 		 1250518506 	 process_13889 
+d 	 64 		 1250518506 	 process_13888 
+d 	 64 		 1250518506 	 process_13887 
+d 	 64 		 1250518506 	 process_13886 
+d 	 64 		 1250518506 	 process_13885 
+d 	 64 		 1250518505 	 process_13884 
+d 	 64 		 1250518505 	 process_13883 
+d 	 64 		 1250518505 	 process_13882 
+d 	 64 		 1250518505 	 process_13881 
+d 	 64 		 1250518505 	 process_13880 
+d 	 64 		 1250518505 	 process_13879 
+d 	 64 		 1250518505 	 process_13878 
+d 	 64 		 1250518505 	 process_13877 
+d 	 64 		 1250518505 	 process_13876 
+d 	 64 		 1250518505 	 process_13875 
+d 	 64 		 1250518505 	 process_13874 
+d 	 64 		 1250518505 	 process_13873 
+d 	 64 		 1250518505 	 process_13872 
+d 	 64 		 1250518505 	 process_13871 
+d 	 64 		 1250518505 	 process_13870 
+d 	 64 		 1250518505 	 process_13869 
+d 	 64 		 1250518505 	 process_13868 
+d 	 64 		 1250518505 	 process_13867 
+d 	 64 		 1250518505 	 process_13866 
+d 	 64 		 1250518505 	 process_13865 
+d 	 64 		 1250518505 	 process_13864 
+d 	 64 		 1250518505 	 process_13863 
+d 	 64 		 1250518501 	 process_13862 
+d 	 64 		 1250518501 	 process_13861 
+
+sim: anam a mostrar un fitxer dels creats
+/simul_200981716151/process_13861/prueba.dat
+-------------------------------------
+16:15:1 escriptura nombre 35 a la posicio 14
+mbre 14 a la posicio 38
+16:15:1 escriptu16:15:1 escriptura nombre 11 a la posicio 113
+16:15:1 escriptura nombre 1 a la posici16:15:1 escriptura nombre 4 a la posicio 275
+16:1516:15:1 escriptura nombre 49 a la posicio 356
+o 362
+16:15:1 escript16:15:1 escriptura nombre 43 16:15:1 escriptura nombre 47 a la posicio 487
+16:15:1 escriptura nombre 42 a la posicio 556
+6:15:1 escriptura nombre 27 a la posicio 601
+osicio 612
+la p16:15:1 escriptura nombre 15 a la posicio 662
+16:15:1 escriptura nombre 12 a la posicio 755
+16:15:1 escriptura nombre 48 a la posicio 809
+16:15:1 escriptura n16:15:1 escriptura nombre 44 a la posicio 916:15:1 escriptura nombre 45 a la posicio 946
+ra nombre 0 a la posicio 976
+16:15:1 escriptura nombre 23 a la posicio 1034
+16:15:1 escriptura nombre 46 a la posicio 1121
+io 1129
+ 29 a la posicio 1151
+sicio 1162
+16:15:1 escriptura nombre 16 a la posicio 1232
+16:15:1 escriptura nombre 38 a la posicio 1304
+16:15:1 escriptura nombre 40 a la posicio 1351
+riptura nombre 32 a la posicio 1387
+16:15:1 escriptura nombre 19 a la posicio 1485
+mbre 17 a la posicio 1511
+ escrip16:15:1 escriptura nombre 21 a la posicio 1565
+escriptura nombre 20 a la posicio 1604
+16:15:1 escriptura nombre 34 a la posicio 1661
+16:15:1 escriptura nombre 37 a la posicio 1758
+o 1765
+cio16:15:1 escriptura nombre 36 a la posicio 1815
+cio 1824
+16:15:1 escriptura nombre 33 a la posicio 1912
+16:15:1 escriptura nombre 3 a la posicio 1970
+-------------------------------------
+Simulació acabada
+\end{verbatim}
+\end{footnotesize}
